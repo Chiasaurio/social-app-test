@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "997859884208",
+    "project_id": "prueba-71a9f",
+    "storage_bucket": "prueba-71a9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997859884208:android:22c0f7e060099ab07e4f75",
+        "android_client_info": {
+          "package_name": "com.andreschia.socialtest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "997859884208-15jgp72pg6bfnct7e9j4m8m8l8qdjmip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHSjH1el1EhGI8zrjf0SLEu5b1ZUM6sG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "997859884208-15jgp72pg6bfnct7e9j4m8m8l8qdjmip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
