@@ -54,8 +54,12 @@ Got any other experience with state management libraries?
 
 Explain SOLID principles 
     - Single Responsibility Principle: It states that a component should be responsible for a single responsability. 	
+    
     - Open-Closed Principle: Establish that classes should be open for extension, but closed for changes, this means that we should be able to add new features in the software without the need of changing the existing source code.
+    
     - Liskov Substitution Principle: Subclases should respect the logic of the superclases, this means we should be able to replace superclases with subclases withouth breaking the app.	
+    
     - Interface Segregation Principle: We shouldn't be forced to implement methods that we don't need in a class. 	
+    
     - Dependency Inversion Principle : It states that we should favor abstractions over implementations.
 
