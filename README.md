@@ -5,9 +5,13 @@ Questions:
     - Are the different ways that we can compile our app, there are three diferent kind of build modes in Flutter, debug, profile and release
 
 2: Which types of tests are commonly used with Flutter apps?
+
     - Unit test, Widget test and Integration test are the most common test on flutter.
+    
         A unit test tests a single function, method, or class.
+        
         A widget test (in other UI frameworks referred to as component test) tests a single widget.
+        
         An integration test tests a complete app or a large part of an app.
 
 3: What’s the difference between stateful and stateless widget?
