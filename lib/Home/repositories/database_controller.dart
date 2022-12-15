@@ -74,39 +74,35 @@ class FirebaseDatabaseController {
     try {
       final ref = FirebaseDatabase.instance.ref();
       Iterable list = [];
-
-      final snapshot = await ref
+      await ref
           .child('posts/')
           .orderByChild('user_id')
           .equalTo(userId)
           .once()
           .then((snapshot) {
-        print('asda');
-        list = snapshot.snapshot.value as List;
+        // list = snapshot.snapshot.value as List;
+        if (snapshot.snapshot.value.runtimeType == List<Object?>) {
+          list = snapshot.snapshot.value as List;
+        } else {
+          final map = snapshot.snapshot.value as Map;
+          Map auxMap = map;
+          map.forEach((key, value) {
+            auxMap[key]["firebase_id"] = key;
+          });
+          list = auxMap.values;
+        }
       });
-
-      // if (snapshot.value.runtimeType == List<Object?>) {
-      //   list = snapshot.value as List;
-      // } else {
-      //   final map = snapshot.value as Map;
-      //   Map auxMap = map;
-      //   map.forEach((key, value) {
-      //     auxMap[key]["firebase_id"] = key;
-      //   });
-      //   list = auxMap.values;
-      // }
       List<PostModel> posts = [];
       for (var e in list) {
-        final aux = e as Map;
-        Map<String, dynamic> auxMap = {};
-        aux.forEach((key, value) {
-          auxMap[key.toString()] = value;
-        });
-
-        final auxPost = PostModel.fromJson(auxMap);
-        posts.add(PostModel.fromJson(auxMap));
+        if (e != null) {
+          final aux = e as Map;
+          Map<String, dynamic> auxMap = {};
+          aux.forEach((key, value) {
+            auxMap[key.toString()] = value;
+          });
+          posts.add(PostModel.fromJson(auxMap));
+        }
       }
-
       return posts;
     } catch (e) {
       return [];

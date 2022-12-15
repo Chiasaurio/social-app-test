@@ -16,9 +16,9 @@ class ProfileLatestPost extends StatelessWidget {
       padding: EdgeInsets.zero,
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
-      itemCount: 15,
+      itemCount: posts.length,
       itemBuilder: (context, index) {
-        final postWithUser = PostWithUser(post: posts[0], user: user);
+        final postWithUser = PostWithUser(post: posts[index], user: user);
         return CustomExpansionTile(
           post: postWithUser,
           title: SizedBox(),

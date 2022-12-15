@@ -93,6 +93,7 @@ class ProfileHeader extends StatelessWidget implements PreferredSizeWidget {
                         user: state.profile,
                         obscureText: true,
                         color: kBackGroundColor,
+                        onTapPicture: false,
                       ),
                       SubHeaderProfile(
                         user: state.profile,

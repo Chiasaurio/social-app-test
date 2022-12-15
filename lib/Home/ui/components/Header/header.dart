@@ -9,8 +9,14 @@ class Header extends StatelessWidget {
   final UserModel user;
   final Color? color;
   final bool obscureText;
-  const Header(
-      {required this.user, this.obscureText = false, this.color, super.key});
+  final bool onTapPicture;
+  const Header({
+    required this.user,
+    this.obscureText = false,
+    this.onTapPicture = true,
+    this.color,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +29,11 @@ class Header extends StatelessWidget {
       width: double.infinity,
       height: 103 - MediaQuery.of(context).padding.top,
       // height: small ? 103 - MediaQuery.of(context).padding.top : 103,
-      child: HeaderContent(user: user, obscureText: obscureText),
+      child: HeaderContent(
+        user: user,
+        obscureText: obscureText,
+        onTapPicture: onTapPicture,
+      ),
     );
   }
 }
@@ -31,10 +41,12 @@ class Header extends StatelessWidget {
 class HeaderContent extends StatelessWidget {
   final UserModel user;
   final bool obscureText;
+  final bool onTapPicture;
 
   const HeaderContent({
     required this.user,
     required this.obscureText,
+    this.onTapPicture = true,
     Key? key,
   }) : super(key: key);
 
@@ -46,7 +58,11 @@ class HeaderContent extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ProfilePicture(user: user, darkText: obscureText),
+          ProfilePicture(
+            user: user,
+            darkText: obscureText,
+            onTapPicture: onTapPicture,
+          ),
           HeaderActions(darkIcon: obscureText),
         ],
       ),

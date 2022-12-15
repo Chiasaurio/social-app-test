@@ -5,7 +5,7 @@ import 'package:prueba/Home/models/user_model.dart';
 import 'package:prueba/Home/ui/components/Post/delete_confirmation_dialog.dart';
 import 'package:prueba/constants.dart';
 
-import '../../../cubit/home_cubit.dart';
+import '../../../../Profile/cubit/profile_cubit.dart';
 
 class PostHeader extends StatelessWidget {
   final UserModel user;
@@ -20,8 +20,14 @@ class PostHeader extends StatelessWidget {
       children: [
         Row(
           children: [
-            CircleAvatar(
-                radius: 16, backgroundImage: NetworkImage(user.imageUrl)),
+            GestureDetector(
+                onTap: () {
+                  BlocProvider.of<ProfileCubit>(context)
+                      .loadProfile(user.userId);
+                  Navigator.pushNamed(context, '/profile');
+                },
+                child: CircleAvatar(
+                    radius: 16, backgroundImage: NetworkImage(user.imageUrl))),
             const SizedBox(
               width: 10.78,
             ),

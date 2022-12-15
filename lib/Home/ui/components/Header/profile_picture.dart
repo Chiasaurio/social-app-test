@@ -9,10 +9,12 @@ class ProfilePicture extends StatelessWidget {
   final UserModel user;
   final bool darkText;
   final bool removeInstagram;
+  final bool onTapPicture;
   const ProfilePicture(
       {required this.user,
       this.darkText = false,
       this.removeInstagram = false,
+      this.onTapPicture = true,
       super.key});
 
   @override
@@ -22,8 +24,10 @@ class ProfilePicture extends StatelessWidget {
       children: [
         GestureDetector(
             onTap: () {
-              BlocProvider.of<ProfileCubit>(context).loadProfile(user.userId);
-              Navigator.pushNamed(context, '/profile');
+              if (onTapPicture) {
+                BlocProvider.of<ProfileCubit>(context).loadProfile(user.userId);
+                Navigator.pushNamed(context, '/profile');
+              }
             },
             child: CircleAvatar(
                 radius: 16, backgroundImage: NetworkImage(user.imageUrl))),
