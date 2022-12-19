@@ -58,7 +58,6 @@ class _PostContentState extends State<PostContent> {
   @override
   void initState() {
     text = widget.post.content;
-    super.initState();
 
     if (text.length > 100) {
       firstHalf = text.substring(0, 100);
@@ -67,6 +66,7 @@ class _PostContentState extends State<PostContent> {
       firstHalf = text;
       secondHalf = "";
     }
+    super.initState();
   }
 
   bool flag = true;

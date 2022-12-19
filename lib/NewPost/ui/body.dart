@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prueba/Home/cubit/home_cubit.dart';
-import 'package:prueba/Home/models/post_model.dart';
 import 'package:prueba/Home/ui/components/Header/profile_picture.dart';
 import 'package:prueba/NewPost/cubit/new_post_cubit.dart';
 import 'package:prueba/NewPost/ui/components/publish_button.dart';
@@ -61,7 +60,7 @@ class _BodyState extends State<Body> {
                             ),
                           );
                         } else {
-                          return SizedBox();
+                          return const SizedBox();
                         }
                       }),
                       TextField(
@@ -103,22 +102,21 @@ class _BodyState extends State<Body> {
                 bold: true,
                 press: () async {
                   if (_controller.text != '') {
-                    final newPost = PostModel(
-                        userId: 0,
-                        content: _controller.text,
-                        likes: 0,
-                        comments: 0,
-                        shares: 0,
-                        likeMe: false);
+                    final newPost = {
+                      "user_id": 0,
+                      "content": _controller.text,
+                      "likes": 0,
+                      "comments": 0,
+                      "shares": 0,
+                      "like_me": false
+                    };
                     final res = await BlocProvider.of<NewPostCubit>(context)
                         .postNewPost(newPost);
                     if (res) {
                       if (!mounted) return;
                       BlocProvider.of<HomeCubit>(context).loadPosts();
                       Navigator.of(context).pop();
-                    } else {
-                      print('error');
-                    }
+                    } else {}
                   }
                 }))
       ],

@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prueba/Home/models/post_model.dart';
-import 'package:prueba/Home/models/user_model.dart';
 import '../repositories/database_controller.dart';
 
 part 'home_state.dart';

@@ -67,9 +67,7 @@ class _PostActionsState extends State<PostActions> {
     return Row(
       children: [
         GestureDetector(
-            onTap: () {
-              print('search');
-            },
+            onTap: () {},
             child: Image.asset(
               'assets/icons/edit.png',
               height: 13,

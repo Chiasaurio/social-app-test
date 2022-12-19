@@ -47,9 +47,7 @@ class SubHeaderContent extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                   color: text != null ? kTextBlackColor : Colors.white)),
           GestureDetector(
-              onTap: () {
-                print('up');
-              },
+              onTap: () {},
               child: Image.asset('assets/icons/${asset ?? 'arrow-up.png'}'))
         ],
       ),

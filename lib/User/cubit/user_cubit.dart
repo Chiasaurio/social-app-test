@@ -10,12 +10,14 @@ class UserCubit extends Cubit<UserState> {
   UserCubit() : super(UserInitial());
 
   loadUser() async {
-    UserModel user = await FirebaseDatabaseController().getUser();
-    emit(UserLoaded(user: user));
+    final user = await FirebaseDatabaseController().getUser();
+    if (user != null) {
+      emit(UserLoaded(user: user));
+    }
   }
 
   loadUserFromId(int id) async {
-    UserModel user = await FirebaseDatabaseController().getUser();
+    final user = await FirebaseDatabaseController().getUser();
     // emit(UserLoaded(user: user));
   }
 }

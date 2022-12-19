@@ -32,9 +32,7 @@ class CustomExpansionTile extends StatefulWidget {
     this.iconColor,
     this.collapsedIconColor,
     this.controlAffinity,
-  })  : assert(initiallyExpanded != null),
-        assert(maintainState != null),
-        assert(
+  }) : assert(
           expandedCrossAxisAlignment != CrossAxisAlignment.baseline,
           'CrossAxisAlignment.baseline is not supported since the expanded children '
           'are aligned in a column, not a row. Try to use another constant.',
@@ -90,8 +88,6 @@ class _ExpansionTileState extends State<CustomExpansionTile>
       CurveTween(curve: Curves.easeOut);
   static final Animatable<double> _easeInTween =
       CurveTween(curve: Curves.easeIn);
-  static final Animatable<double> _halfTween =
-      Tween<double>(begin: 0.0, end: 0.5);
 
   final ColorTween _borderColorTween = ColorTween();
   final ColorTween _headerColorTween = ColorTween();
@@ -99,7 +95,6 @@ class _ExpansionTileState extends State<CustomExpansionTile>
   final ColorTween _backgroundColorTween = ColorTween();
 
   late AnimationController _controller;
-  late Animation<double> _iconTurns;
   late Animation<double> _heightFactor;
   late Animation<Color?> _borderColor;
   late Animation<Color?> _headerColor;
@@ -113,7 +108,6 @@ class _ExpansionTileState extends State<CustomExpansionTile>
     super.initState();
     _controller = AnimationController(duration: _kExpand, vsync: this);
     _heightFactor = _controller.drive(_easeInTween);
-    _iconTurns = _controller.drive(_halfTween.chain(_easeInTween));
     _borderColor = _controller.drive(_borderColorTween.chain(_easeOutTween));
     _headerColor = _controller.drive(_headerColorTween.chain(_easeInTween));
     _iconColor = _controller.drive(_iconColorTween.chain(_easeInTween));
@@ -153,18 +147,6 @@ class _ExpansionTileState extends State<CustomExpansionTile>
     widget.onExpansionChanged?.call(_isExpanded);
   }
 
-  // Platform or null affinity defaults to trailing.
-  ListTileControlAffinity _effectiveAffinity(
-      ListTileControlAffinity? affinity) {
-    switch (affinity ?? ListTileControlAffinity.trailing) {
-      case ListTileControlAffinity.leading:
-        return ListTileControlAffinity.leading;
-      case ListTileControlAffinity.trailing:
-      case ListTileControlAffinity.platform:
-        return ListTileControlAffinity.trailing;
-    }
-  }
-
   Widget _buildChildren(BuildContext context, Widget? child) {
     final ExpansionTileThemeData expansionTileTheme =
         ExpansionTileTheme.of(context);
@@ -193,7 +175,6 @@ class _ExpansionTileState extends State<CustomExpansionTile>
                 post: widget.post,
                 onTapComments: _handleTap,
               ),
-              // subtitle: widget.subtitle,
             ),
           ),
           ClipRect(

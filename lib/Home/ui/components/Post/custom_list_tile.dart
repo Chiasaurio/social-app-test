@@ -45,11 +45,7 @@ class CustomListTile extends StatelessWidget {
     this.horizontalTitleGap,
     this.minVerticalPadding,
     this.minLeadingWidth,
-  })  : assert(isThreeLine != null),
-        assert(enabled != null),
-        assert(selected != null),
-        assert(autofocus != null),
-        assert(!isThreeLine || subtitle != null);
+  }) : assert(!isThreeLine || subtitle != null);
 
   final Widget? leading;
 
@@ -109,7 +105,6 @@ class CustomListTile extends StatelessWidget {
 
   static Iterable<Widget> divideTiles(
       {BuildContext? context, required Iterable<Widget> tiles, Color? color}) {
-    assert(tiles != null);
     assert(color != null || context != null);
     tiles = tiles.toList();
 
@@ -184,31 +179,6 @@ class CustomListTile extends StatelessWidget {
     return dense ?? tileTheme.dense ?? theme.listTileTheme.dense ?? false;
   }
 
-  TextStyle _titleTextStyle(
-      ThemeData theme, ListTileThemeData tileTheme, BuildContext context) {
-    return TextStyle(color: kBackGroundColor, fontSize: 11);
-    // final TextStyle textStyle;
-    // switch (style ??
-    //     tileTheme.style ??
-    //     theme.listTileTheme.style ??
-    //     ListTileStyle.list) {
-    //   case ListTileStyle.drawer:
-    //     textStyle = theme.useMaterial3
-    //         ? theme.textTheme.bodyMedium!
-    //         : theme.textTheme.bodyText1!;
-    //     break;
-    //   case ListTileStyle.list:
-    //     textStyle = theme.useMaterial3
-    //         ? theme.textTheme.titleMedium!
-    //         : theme.textTheme.subtitle1!;
-    //     break;
-    // }
-    // final Color? color = _textColor(theme, tileTheme, textStyle.color);
-    // return _isDenseLayout(theme, tileTheme)
-    //     ? textStyle.copyWith(fontSize: 13.0, color: color)
-    //     : textStyle.copyWith(color: color);
-  }
-
   TextStyle _subtitleTextStyle(ThemeData theme, ListTileThemeData tileTheme) {
     final TextStyle textStyle = theme.useMaterial3
         ? theme.textTheme.bodyMedium!
@@ -266,9 +236,8 @@ class CustomListTile extends StatelessWidget {
       );
     }
 
-    final TextStyle titleStyle = _titleTextStyle(theme, tileTheme, context);
     final Widget titleText = AnimatedDefaultTextStyle(
-      style: TextStyle(color: kTextBlackColor, fontSize: 11),
+      style: const TextStyle(color: kTextBlackColor, fontSize: 11),
       duration: kThemeChangeDuration,
       child: title ?? const SizedBox(),
     );
@@ -466,14 +435,7 @@ class _ListTile extends RenderObjectWidget
     required this.minVerticalPadding,
     required this.minLeadingWidth,
     this.subtitleBaselineType,
-  })  : assert(isThreeLine != null),
-        assert(isDense != null),
-        assert(visualDensity != null),
-        assert(textDirection != null),
-        assert(titleBaselineType != null),
-        assert(horizontalTitleGap != null),
-        assert(minVerticalPadding != null),
-        assert(minLeadingWidth != null);
+  });
 
   final Widget? leading;
   final Widget title;
@@ -548,15 +510,7 @@ class _RenderListTile extends RenderBox
     required double horizontalTitleGap,
     required double minVerticalPadding,
     required double minLeadingWidth,
-  })  : assert(isDense != null),
-        assert(visualDensity != null),
-        assert(isThreeLine != null),
-        assert(textDirection != null),
-        assert(titleBaselineType != null),
-        assert(horizontalTitleGap != null),
-        assert(minVerticalPadding != null),
-        assert(minLeadingWidth != null),
-        _isDense = isDense,
+  })  : _isDense = isDense,
         _visualDensity = visualDensity,
         _isThreeLine = isThreeLine,
         _textDirection = textDirection,
@@ -585,7 +539,6 @@ class _RenderListTile extends RenderBox
   bool get isDense => _isDense;
   bool _isDense;
   set isDense(bool value) {
-    assert(value != null);
     if (_isDense == value) {
       return;
     }
@@ -596,7 +549,6 @@ class _RenderListTile extends RenderBox
   VisualDensity get visualDensity => _visualDensity;
   VisualDensity _visualDensity;
   set visualDensity(VisualDensity value) {
-    assert(value != null);
     if (_visualDensity == value) {
       return;
     }
@@ -607,7 +559,6 @@ class _RenderListTile extends RenderBox
   bool get isThreeLine => _isThreeLine;
   bool _isThreeLine;
   set isThreeLine(bool value) {
-    assert(value != null);
     if (_isThreeLine == value) {
       return;
     }
@@ -618,7 +569,6 @@ class _RenderListTile extends RenderBox
   TextDirection get textDirection => _textDirection;
   TextDirection _textDirection;
   set textDirection(TextDirection value) {
-    assert(value != null);
     if (_textDirection == value) {
       return;
     }
@@ -629,7 +579,6 @@ class _RenderListTile extends RenderBox
   TextBaseline get titleBaselineType => _titleBaselineType;
   TextBaseline _titleBaselineType;
   set titleBaselineType(TextBaseline value) {
-    assert(value != null);
     if (_titleBaselineType == value) {
       return;
     }
@@ -653,7 +602,6 @@ class _RenderListTile extends RenderBox
       _horizontalTitleGap + visualDensity.horizontal * 2.0;
 
   set horizontalTitleGap(double value) {
-    assert(value != null);
     if (_horizontalTitleGap == value) {
       return;
     }
@@ -665,7 +613,6 @@ class _RenderListTile extends RenderBox
   double _minVerticalPadding;
 
   set minVerticalPadding(double value) {
-    assert(value != null);
     if (_minVerticalPadding == value) {
       return;
     }
@@ -677,7 +624,6 @@ class _RenderListTile extends RenderBox
   double _minLeadingWidth;
 
   set minLeadingWidth(double value) {
-    assert(value != null);
     if (_minLeadingWidth == value) {
       return;
     }
@@ -961,7 +907,6 @@ class _RenderListTile extends RenderBox
 
   @override
   bool hitTestChildren(BoxHitTestResult result, {required Offset position}) {
-    assert(position != null);
     for (final RenderBox child in children) {
       final BoxParentData parentData = child.parentData! as BoxParentData;
       final bool isHit = result.addWithPaintOffset(

@@ -13,9 +13,7 @@ class HeaderActions extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         GestureDetector(
-            onTap: () {
-              print('search');
-            },
+            onTap: () {},
             child: Image.asset(
               'assets/icons/search.png',
               color: actionsGrey
@@ -28,9 +26,7 @@ class HeaderActions extends StatelessWidget {
           width: 10,
         ),
         GestureDetector(
-            onTap: () {
-              print('menu');
-            },
+            onTap: () {},
             child: Image.asset(
               'assets/icons/menu.png',
               color: actionsGrey

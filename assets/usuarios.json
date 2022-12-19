@@ -25,29 +25,6 @@
         "background_image_url": "https://images.unsplash.com/photo-1661961112835-ca6f5811d2af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80"
     }],
     "posts" : [
-        {
-            "user_id": 0,
-            "content": "The collapse of the online-advertising market in 2001 made marketing on the Internet seem even less compelling. Website usability, press releases. The collapse of the online-advertising market in 2001 made marketing on the Internet seem even less compelling. Website usability, press releases.",
-            "likes": 30,
-            "comments": 3,
-            "shares": 34,
-            "like_me": false
-        },
-        {
-            "user_id": 1,
-            "content": "The collapse of the online-advertising market in 2001 made marketing on the Internet.",
-            "likes": 2,
-            "comments": 12,
-            "shares": 1,
-            "like_me": false
-        },
-        {
-            "user_id": 1,
-            "content": "The collapse of the online-advertising market in 2001 made marketing on the Internet seem even less compelling. Website usability, press releases. The collapse of the online-advertising market in 2001 made marketing on the Internet seem even less compelling. Website usability, press releases.",
-            "likes": 0,
-            "comments": 0,
-            "shares": 0,
-            "like_me": true
-        }
+      
     ]
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prueba/Home/cubit/home_cubit.dart';
-import 'package:prueba/Home/repositories/database_controller.dart';
 import 'package:prueba/Home/ui/body.dart';
 import 'package:prueba/Home/ui/components/Header/header.dart';
 import 'package:prueba/Home/ui/components/Header/sub_header.dart';
@@ -48,7 +47,7 @@ class _HomeState extends State<HomeScreen> {
       ),
       bottomNavigationBar: BottomAppBar(
         notchMargin: 8,
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         color: kDarkPurpleColor,
         child: Row(
           mainAxisSize: MainAxisSize.max,
@@ -92,7 +91,7 @@ class HomeHeader extends StatelessWidget implements PreferredSizeWidget {
                 children: [Header(user: state.user), const SubHeader()],
               );
             } else {
-              return SizedBox();
+              return const SizedBox();
             }
           },
         ));

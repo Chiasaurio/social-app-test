@@ -21,7 +21,7 @@ class ProfileLatestPost extends StatelessWidget {
         final postWithUser = PostWithUser(post: posts[index], user: user);
         return CustomExpansionTile(
           post: postWithUser,
-          title: SizedBox(),
+          title: const SizedBox(),
           // subtitle: Post(post: posts[index]),
           children: const [
             ListTile(title: Text('Aqui va comments')),

@@ -119,7 +119,7 @@ class ProfileHeader extends StatelessWidget implements PreferredSizeWidget {
                 ],
               );
             } else {
-              return SizedBox();
+              return const SizedBox();
             }
           },
         ));

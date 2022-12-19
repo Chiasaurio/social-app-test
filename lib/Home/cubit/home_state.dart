@@ -2,7 +2,7 @@ part of 'home_cubit.dart';
 
 abstract class HomeState extends Equatable {
   @override
-  List<Object?> get props => throw [];
+  List<Object?> get props => [];
 }
 
 class HomeInitial extends HomeState {}

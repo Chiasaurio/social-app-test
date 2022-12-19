@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.andreschia.socialtest">
-   <application
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application
         android:label="prueba"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

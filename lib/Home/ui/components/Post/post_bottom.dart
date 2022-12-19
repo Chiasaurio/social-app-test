@@ -18,21 +18,19 @@ class PostActionsBottom extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         GestureDetector(
-            onTap: () {
-              print('like');
-            },
+            onTap: () {},
             child: Image.asset(
               'assets/icons/like.png',
               height: 16,
               color: post.likeMe ? kLikeColor : kTextGreyColor,
             )),
-        const Text('30', style: TextStyle(fontSize: 7, color: kTextGreyColor)),
+        Text(post.likes.toString(),
+            style: const TextStyle(fontSize: 7, color: kTextGreyColor)),
         const SizedBox(
           width: 20,
         ),
         GestureDetector(
             onTap: () {
-              print('comments');
               toggleComments();
             },
             child: Image.asset(
@@ -40,20 +38,20 @@ class PostActionsBottom extends StatelessWidget {
               height: 16,
               color: kTextGreyColor,
             )),
-        const Text('3', style: TextStyle(fontSize: 7, color: kTextGreyColor)),
+        Text(post.comments.toString(),
+            style: const TextStyle(fontSize: 7, color: kTextGreyColor)),
         const SizedBox(
           width: 20,
         ),
         GestureDetector(
-            onTap: () {
-              print('share');
-            },
+            onTap: () {},
             child: Image.asset(
               'assets/icons/share.png',
               height: 16,
               color: kTextGreyColor,
             )),
-        const Text('34', style: TextStyle(fontSize: 7, color: kTextGreyColor)),
+        Text(post.shares.toString(),
+            style: const TextStyle(fontSize: 7, color: kTextGreyColor)),
       ],
     );
   }

@@ -2,14 +2,10 @@
 //
 //     final user = userFromJson(jsonString);
 
-import 'dart:convert';
+import 'package:equatable/equatable.dart';
 
-UserModel userFromJson(String str) => UserModel.fromJson(json.decode(str));
-
-String userToJson(UserModel data) => json.encode(data.toJson());
-
-class UserModel {
-  UserModel({
+class UserModel extends Equatable {
+  const UserModel({
     required this.userId,
     required this.name,
     required this.instagram,
@@ -22,19 +18,19 @@ class UserModel {
     required this.backgroundImageUrl,
   });
 
-  int userId;
-  String name;
-  String instagram;
-  String company;
-  String city;
-  String phone;
-  String phrase;
-  int lastConnection;
-  String imageUrl;
-  String backgroundImageUrl;
+  final int userId;
+  final String name;
+  final String instagram;
+  final String company;
+  final String city;
+  final String phone;
+  final String phrase;
+  final int lastConnection;
+  final String imageUrl;
+  final String backgroundImageUrl;
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-        userId: json["user_id"],
+  factory UserModel.fromJson(Map<String, dynamic> json, int id) => UserModel(
+        userId: id,
         name: json["name"],
         instagram: json["instagram"],
         company: json["company"],
@@ -58,4 +54,18 @@ class UserModel {
         "image_url": imageUrl,
         "background_image_url": backgroundImageUrl
       };
+
+  @override
+  List<Object?> get props => [
+        userId,
+        name,
+        instagram,
+        company,
+        city,
+        phone,
+        phrase,
+        lastConnection,
+        imageUrl,
+        backgroundImageUrl
+      ];
 }
